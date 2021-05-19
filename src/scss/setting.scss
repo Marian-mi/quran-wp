@@ -1,0 +1,231 @@
+@import 'common';
+
+.setting-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.404);
+    position: fixed;
+    right: 0;
+    z-index: 2000;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: 0.5s;
+    overflow: auto;
+}
+
+.closeicon {
+    position: absolute;
+    height: 100%;
+    z-index: 4000;
+    left: 10px;
+    svg {
+        position: absolute;
+        @include centeredtop();
+        font-size: 40px;
+        color: rgba(255, 255, 255, 0.705);
+    }
+}
+
+.settingOpen {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.setting-headers {
+    height: 80px;
+    background-color: $primary-color2;
+    position: relative;   
+    p {
+        text-align: right;
+        position: relative;
+        @include centeredtop();
+        color: rgba(255, 255, 255, 0.705);
+        font-size: 30px;
+        font-family: $font-farsi;
+        font-weight: 500;
+        right: 20px;
+    }
+}
+
+.setting-body-container {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    top: 30px;
+}
+
+.body-headers {
+    height: 70px;
+    direction: rtl;
+    background-color: $primary-color2;
+    padding: 20px 40px;
+    position: relative;
+    color: rgba(255, 255, 255, 0.692);
+    font-family: $font-farsi;
+    font-size: 22px;
+    border: 1px solid white;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.body-headers-icon {
+    position: absolute;
+    left: 40px;
+    @include centeredtop();
+    width: 20px;
+    // transform: rotate(180deg);
+    transition: 0.5s;
+    height: 20px;
+    text-align: center;
+    pointer-events: none;
+    font-size: 40px;
+}
+
+.setting-body {
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.setting-open {
+    border: none;
+}
+
+.qari-select-container {
+    @extend .setting-body;
+    direction: rtl;   
+}
+.tarjome-select-container {
+    @extend .setting-body;
+    background-color: white;
+    display: flex;
+    div {
+        width: 33%;
+        font-family: $font-farsi;
+        color: $primary-color2;
+        font-size: 20px;
+        padding: 5px 0;
+        margin: auto;
+        height: 90px;
+        text-align: center;
+        position: relative;
+        transition: 0.5s;
+        cursor: pointer;
+        p {
+            position: absolute;
+            width: 90%;
+            left: 50%;
+            bottom: 50%;
+            transform: translate(-50%, 50%);
+        }
+    }
+    div:first-child {
+        border-right: 1px solid $primary-color2;
+    }
+    div:last-child {
+        border-left: 1px solid $primary-color2;
+    }
+    div:hover {
+        background-color: $primary-color2;
+        color: rgba(255, 255, 255, 0.705);
+    }
+}
+
+.Qari-select {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin: auto;
+    z-index: 400;
+    font-family: $font-farsi;
+    font-size: 20px;
+    border: 1px solid white;
+}
+
+.qari-options-container {
+    height: 100%;
+    transition: 0.5s;
+    overflow: auto;
+    background-color: white;
+    div {
+        cursor: pointer;
+        height: 50px;
+        border-top: 1px solid grey;
+        position: relative;
+        color: $primary-color2;
+        padding: 0 40px;
+        transition: 0.5s;
+        p {
+            position: relative;
+            @include centeredtop();
+            pointer-events: none;
+        }
+        span {
+            font-family: osmanTaha;
+            color: rgba(255, 255, 255, 0.705);
+            pointer-events: none;
+            font-size: 14px;
+            padding: 0 5px;
+            border-radius: 50%;
+            left: 50px;
+            background-color: $primary-color2;
+            position: absolute;
+            @include centeredtop();
+            transition: 0.5s;
+        }
+        svg {
+            position: absolute;
+            right: 10px;
+            @include centeredtop();
+        }
+    }
+    div:hover {
+        background-color: $primary-color2;
+        color: rgba(255, 255, 255, 0.705);
+        span {
+            background-color: rgba(255, 255, 255, 0.685);
+            color: $primary-color2;
+        }
+    }
+    
+}
+
+
+.setting-body1 {
+    padding: 20px 30px; 
+    background-color: white;
+    font-size: 20px;
+    font-family: $font-farsi;
+    font-weight: 500;
+    color: $primary-color2;
+    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    transition: 0.5s;
+    > div {
+        width: 30%;
+        margin: auto;
+    }
+}
+.setting-body1:hover {
+    background-color: $primary-color2;
+    color: rgba(255, 255, 255, 0.705);
+}
+
+
+
+@media only screen and (min-width: 900px) {
+    .setting-body-container {
+        margin: auto;
+        width: 70%;
+    }
+    .qari-options {
+        button {
+            width: 150px;
+            margin-left: 50px;
+        }
+        select {
+            width: 250px;
+        }
+    }
+}

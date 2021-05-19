@@ -1,0 +1,1262 @@
+[
+    {
+        "sooreNumber": 1,
+        "start": 1,
+        "total": 6,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Opening",
+            "arabic": "الفاتحة",
+            "finglish": "Al-Faatiha"
+        }
+    },
+    {
+        "sooreNumber": 2,
+        "start": 7,
+        "total": 286,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Cow",
+            "arabic": "البقرة",
+            "finglish": "Al-Baqara"
+        }
+    },
+    {
+        "sooreNumber": 3,
+        "start": 293,
+        "total": 200,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Family of Imraan",
+            "arabic": "آل عمران",
+            "finglish": "Aal-i-Imraan"
+        }
+    },
+    {
+        "sooreNumber": 4,
+        "start": 493,
+        "total": 176,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Women",
+            "arabic": "النساء",
+            "finglish": "An-Nisaa"
+        }
+    },
+    {
+        "sooreNumber": 5,
+        "start": 669,
+        "total": 120,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Table",
+            "arabic": "المائدة",
+            "finglish": "Al-Maaida"
+        }
+    },
+    {
+        "sooreNumber": 6,
+        "start": 789,
+        "total": 165,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Cattle",
+            "arabic": "الأنعام",
+            "finglish": "Al-An'aam"
+        }
+    },
+    {
+        "sooreNumber": 7,
+        "start": 954,
+        "total": 206,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Heights",
+            "arabic": "الأعراف",
+            "finglish": "Al-A'raaf"
+        }
+    },
+    {
+        "sooreNumber": 8,
+        "start": 1160,
+        "total": 75,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Spoils of War",
+            "arabic": "الأنفال",
+            "finglish": "Al-Anfaal"
+        }
+    },
+    {
+        "sooreNumber": 9,
+        "start": 1235,
+        "total": 129,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Repentance",
+            "arabic": "التوبة",
+            "finglish": "At-Tawba"
+        }
+    },
+    {
+        "sooreNumber": 10,
+        "start": 1364,
+        "total": 109,
+        "origin": "Meccan",
+        "names": {
+            "english": "Jonas",
+            "arabic": "يونس",
+            "finglish": "Yunus"
+        }
+    },
+    {
+        "sooreNumber": 11,
+        "start": 1473,
+        "total": 123,
+        "origin": "Meccan",
+        "names": {
+            "english": "Hud",
+            "arabic": "هود",
+            "finglish": "Hud"
+        }
+    },
+    {
+        "sooreNumber": 12,
+        "start": 1596,
+        "total": 111,
+        "origin": "Meccan",
+        "names": {
+            "english": "Joseph",
+            "arabic": "يوسف",
+            "finglish": "Yusuf"
+        }
+    },
+    {
+        "sooreNumber": 13,
+        "start": 1707,
+        "total": 43,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Thunder",
+            "arabic": "الرعد",
+            "finglish": "Ar-Ra'd"
+        }
+    },
+    {
+        "sooreNumber": 14,
+        "start": 1750,
+        "total": 52,
+        "origin": "Meccan",
+        "names": {
+            "english": "Abraham",
+            "arabic": "ابراهيم",
+            "finglish": "Ibrahim"
+        }
+    },
+    {
+        "sooreNumber": 15,
+        "start": 1802,
+        "total": 99,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Rock",
+            "arabic": "الحجر",
+            "finglish": "Al-Hijr"
+        }
+    },
+    {
+        "sooreNumber": 16,
+        "start": 1901,
+        "total": 128,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Bee",
+            "arabic": "النحل",
+            "finglish": "An-Nahl"
+        }
+    },
+    {
+        "sooreNumber": 17,
+        "start": 2029,
+        "total": 111,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Night Journey",
+            "arabic": "الإسراء",
+            "finglish": "Al-Israa"
+        }
+    },
+    {
+        "sooreNumber": 18,
+        "start": 2140,
+        "total": 110,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Cave",
+            "arabic": "الكهف",
+            "finglish": "Al-Kahf"
+        }
+    },
+    {
+        "sooreNumber": 19,
+        "start": 2250,
+        "total": 98,
+        "origin": "Meccan",
+        "names": {
+            "english": "Mary",
+            "arabic": "مريم",
+            "finglish": "Maryam"
+        }
+    },
+    {
+        "sooreNumber": 20,
+        "start": 2348,
+        "total": 135,
+        "origin": "Meccan",
+        "names": {
+            "english": "Taa-Haa",
+            "arabic": "طه",
+            "finglish": "Taa-Haa"
+        }
+    },
+    {
+        "sooreNumber": 21,
+        "start": 2483,
+        "total": 112,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Prophets",
+            "arabic": "الأنبياء",
+            "finglish": "Al-Anbiyaa"
+        }
+    },
+    {
+        "sooreNumber": 22,
+        "start": 2595,
+        "total": 78,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Pilgrimage",
+            "arabic": "الحج",
+            "finglish": "Al-Hajj"
+        }
+    },
+    {
+        "sooreNumber": 23,
+        "start": 2673,
+        "total": 118,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Believers",
+            "arabic": "المؤمنون",
+            "finglish": "Al-Muminoon"
+        }
+    },
+    {
+        "sooreNumber": 24,
+        "start": 2791,
+        "total": 64,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Light",
+            "arabic": "النور",
+            "finglish": "An-Noor"
+        }
+    },
+    {
+        "sooreNumber": 25,
+        "start": 2855,
+        "total": 77,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Criterion",
+            "arabic": "الفرقان",
+            "finglish": "Al-Furqaan"
+        }
+    },
+    {
+        "sooreNumber": 26,
+        "start": 2932,
+        "total": 227,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Poets",
+            "arabic": "الشعراء",
+            "finglish": "Ash-Shu'araa"
+        }
+    },
+    {
+        "sooreNumber": 27,
+        "start": 3159,
+        "total": 93,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Ant",
+            "arabic": "النمل",
+            "finglish": "An-Naml"
+        }
+    },
+    {
+        "sooreNumber": 28,
+        "start": 3252,
+        "total": 88,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Stories",
+            "arabic": "القصص",
+            "finglish": "Al-Qasas"
+        }
+    },
+    {
+        "sooreNumber": 29,
+        "start": 3340,
+        "total": 69,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Spider",
+            "arabic": "العنكبوت",
+            "finglish": "Al-Ankaboot"
+        }
+    },
+    {
+        "sooreNumber": 30,
+        "start": 3409,
+        "total": 60,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Romans",
+            "arabic": "الروم",
+            "finglish": "Ar-Room"
+        }
+    },
+    {
+        "sooreNumber": 31,
+        "start": 3469,
+        "total": 34,
+        "origin": "Meccan",
+        "names": {
+            "english": "Luqman",
+            "arabic": "لقمان",
+            "finglish": "Luqman"
+        }
+    },
+    {
+        "sooreNumber": 32,
+        "start": 3503,
+        "total": 30,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Prostration",
+            "arabic": "السجدة",
+            "finglish": "As-Sajda"
+        }
+    },
+    {
+        "sooreNumber": 33,
+        "start": 3533,
+        "total": 73,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Clans",
+            "arabic": "الأحزاب",
+            "finglish": "Al-Ahzaab"
+        }
+    },
+    {
+        "sooreNumber": 34,
+        "start": 3606,
+        "total": 54,
+        "origin": "Meccan",
+        "names": {
+            "english": "Sheba",
+            "arabic": "سبإ",
+            "finglish": "Saba"
+        }
+    },
+    {
+        "sooreNumber": 35,
+        "start": 3660,
+        "total": 45,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Originator",
+            "arabic": "فاطر",
+            "finglish": "Faatir"
+        }
+    },
+    {
+        "sooreNumber": 36,
+        "start": 3705,
+        "total": 83,
+        "origin": "Meccan",
+        "names": {
+            "english": "Yaseen",
+            "arabic": "يس",
+            "finglish": "Yaseen"
+        }
+    },
+    {
+        "sooreNumber": 37,
+        "start": 3788,
+        "total": 182,
+        "origin": "Meccan",
+        "names": {
+            "english": "Those drawn up in Ranks",
+            "arabic": "الصافات",
+            "finglish": "As-Saaffaat"
+        }
+    },
+    {
+        "sooreNumber": 38,
+        "start": 3970,
+        "total": 88,
+        "origin": "Meccan",
+        "names": {
+            "english": "The letter Saad",
+            "arabic": "ص",
+            "finglish": "Saad"
+        }
+    },
+    {
+        "sooreNumber": 39,
+        "start": 4058,
+        "total": 75,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Groups",
+            "arabic": "الزمر",
+            "finglish": "Az-Zumar"
+        }
+    },
+    {
+        "sooreNumber": 40,
+        "start": 4133,
+        "total": 85,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Forgiver",
+            "arabic": "غافر",
+            "finglish": "Al-Ghaafir"
+        }
+    },
+    {
+        "sooreNumber": 41,
+        "start": 4218,
+        "total": 54,
+        "origin": "Meccan",
+        "names": {
+            "english": "Explained in detail",
+            "arabic": "فصلت",
+            "finglish": "Fussilat"
+        }
+    },
+    {
+        "sooreNumber": 42,
+        "start": 4272,
+        "total": 53,
+        "origin": "Meccan",
+        "names": {
+            "english": "Consultation",
+            "arabic": "الشورى",
+            "finglish": "Ash-Shura"
+        }
+    },
+    {
+        "sooreNumber": 43,
+        "start": 4325,
+        "total": 89,
+        "origin": "Meccan",
+        "names": {
+            "english": "Ornaments of gold",
+            "arabic": "الزخرف",
+            "finglish": "Az-Zukhruf"
+        }
+    },
+    {
+        "sooreNumber": 44,
+        "start": 4414,
+        "total": 59,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Smoke",
+            "arabic": "الدخان",
+            "finglish": "Ad-Dukhaan"
+        }
+    },
+    {
+        "sooreNumber": 45,
+        "start": 4473,
+        "total": 37,
+        "origin": "Meccan",
+        "names": {
+            "english": "Crouching",
+            "arabic": "الجاثية",
+            "finglish": "Al-Jaathiya"
+        }
+    },
+    {
+        "sooreNumber": 46,
+        "start": 4510,
+        "total": 35,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Dunes",
+            "arabic": "الأحقاف",
+            "finglish": "Al-Ahqaf"
+        }
+    },
+    {
+        "sooreNumber": 47,
+        "start": 4545,
+        "total": 38,
+        "origin": "Medinan",
+        "names": {
+            "english": "Muhammad",
+            "arabic": "محمد",
+            "finglish": "Muhammad"
+        }
+    },
+    {
+        "sooreNumber": 48,
+        "start": 4583,
+        "total": 29,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Victory",
+            "arabic": "الفتح",
+            "finglish": "Al-Fath"
+        }
+    },
+    {
+        "sooreNumber": 49,
+        "start": 4612,
+        "total": 18,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Inner Apartments",
+            "arabic": "الحجرات",
+            "finglish": "Al-Hujuraat"
+        }
+    },
+    {
+        "sooreNumber": 50,
+        "start": 4630,
+        "total": 45,
+        "origin": "Meccan",
+        "names": {
+            "english": "The letter Qaaf",
+            "arabic": "ق",
+            "finglish": "Qaaf"
+        }
+    },
+    {
+        "sooreNumber": 51,
+        "start": 4675,
+        "total": 60,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Winnowing Winds",
+            "arabic": "الذاريات",
+            "finglish": "Adh-Dhaariyat"
+        }
+    },
+    {
+        "sooreNumber": 52,
+        "start": 4735,
+        "total": 49,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Mount",
+            "arabic": "الطور",
+            "finglish": "At-Tur"
+        }
+    },
+    {
+        "sooreNumber": 53,
+        "start": 4784,
+        "total": 62,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Star",
+            "arabic": "النجم",
+            "finglish": "An-Najm"
+        }
+    },
+    {
+        "sooreNumber": 54,
+        "start": 4846,
+        "total": 55,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Moon",
+            "arabic": "القمر",
+            "finglish": "Al-Qamar"
+        }
+    },
+    {
+        "sooreNumber": 55,
+        "start": 4901,
+        "total": 78,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Beneficent",
+            "arabic": "الرحمن",
+            "finglish": "Ar-Rahmaan"
+        }
+    },
+    {
+        "sooreNumber": 56,
+        "start": 4979,
+        "total": 96,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Inevitable",
+            "arabic": "الواقعة",
+            "finglish": "Al-Waaqia"
+        }
+    },
+    {
+        "sooreNumber": 57,
+        "start": 5075,
+        "total": 29,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Iron",
+            "arabic": "الحديد",
+            "finglish": "Al-Hadid"
+        }
+    },
+    {
+        "sooreNumber": 58,
+        "start": 5104,
+        "total": 22,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Pleading Woman",
+            "arabic": "المجادلة",
+            "finglish": "Al-Mujaadila"
+        }
+    },
+    {
+        "sooreNumber": 59,
+        "start": 5126,
+        "total": 24,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Exile",
+            "arabic": "الحشر",
+            "finglish": "Al-Hashr"
+        }
+    },
+    {
+        "sooreNumber": 60,
+        "start": 5150,
+        "total": 13,
+        "origin": "Medinan",
+        "names": {
+            "english": "She that is to be examined",
+            "arabic": "الممتحنة",
+            "finglish": "Al-Mumtahana"
+        }
+    },
+    {
+        "sooreNumber": 61,
+        "start": 5163,
+        "total": 14,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Ranks",
+            "arabic": "الصف",
+            "finglish": "As-Saff"
+        }
+    },
+    {
+        "sooreNumber": 62,
+        "start": 5177,
+        "total": 11,
+        "origin": "Medinan",
+        "names": {
+            "english": "Friday",
+            "arabic": "الجمعة",
+            "finglish": "Al-Jumu'a"
+        }
+    },
+    {
+        "sooreNumber": 63,
+        "start": 5188,
+        "total": 11,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Hypocrites",
+            "arabic": "المنافقون",
+            "finglish": "Al-Munaafiqoon"
+        }
+    },
+    {
+        "sooreNumber": 64,
+        "start": 5199,
+        "total": 18,
+        "origin": "Medinan",
+        "names": {
+            "english": "Mutual Disillusion",
+            "arabic": "التغابن",
+            "finglish": "At-Taghaabun"
+        }
+    },
+    {
+        "sooreNumber": 65,
+        "start": 5217,
+        "total": 12,
+        "origin": "Medinan",
+        "names": {
+            "english": "Divorce",
+            "arabic": "الطلاق",
+            "finglish": "At-Talaaq"
+        }
+    },
+    {
+        "sooreNumber": 66,
+        "start": 5229,
+        "total": 12,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Prohibition",
+            "arabic": "التحريم",
+            "finglish": "At-Tahrim"
+        }
+    },
+    {
+        "sooreNumber": 67,
+        "start": 5241,
+        "total": 30,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Sovereignty",
+            "arabic": "الملك",
+            "finglish": "Al-Mulk"
+        }
+    },
+    {
+        "sooreNumber": 68,
+        "start": 5271,
+        "total": 52,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Pen",
+            "arabic": "القلم",
+            "finglish": "Al-Qalam"
+        }
+    },
+    {
+        "sooreNumber": 69,
+        "start": 5323,
+        "total": 52,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Reality",
+            "arabic": "الحاقة",
+            "finglish": "Al-Haaqqa"
+        }
+    },
+    {
+        "sooreNumber": 70,
+        "start": 5375,
+        "total": 44,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Ascending Stairways",
+            "arabic": "المعارج",
+            "finglish": "Al-Ma'aarij"
+        }
+    },
+    {
+        "sooreNumber": 71,
+        "start": 5419,
+        "total": 28,
+        "origin": "Meccan",
+        "names": {
+            "english": "Noah",
+            "arabic": "نوح",
+            "finglish": "Nooh"
+        }
+    },
+    {
+        "sooreNumber": 72,
+        "start": 5447,
+        "total": 28,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Jinn",
+            "arabic": "الجن",
+            "finglish": "Al-Jinn"
+        }
+    },
+    {
+        "sooreNumber": 73,
+        "start": 5475,
+        "total": 20,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Enshrouded One",
+            "arabic": "المزمل",
+            "finglish": "Al-Muzzammil"
+        }
+    },
+    {
+        "sooreNumber": 74,
+        "start": 5495,
+        "total": 56,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Cloaked One",
+            "arabic": "المدثر",
+            "finglish": "Al-Muddaththir"
+        }
+    },
+    {
+        "sooreNumber": 75,
+        "start": 5551,
+        "total": 40,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Resurrection",
+            "arabic": "القيامة",
+            "finglish": "Al-Qiyaama"
+        }
+    },
+    {
+        "sooreNumber": 76,
+        "start": 5591,
+        "total": 31,
+        "origin": "Medinan",
+        "names": {
+            "english": "Man",
+            "arabic": "الانسان",
+            "finglish": "Al-Insaan"
+        }
+    },
+    {
+        "sooreNumber": 77,
+        "start": 5622,
+        "total": 50,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Emissaries",
+            "arabic": "المرسلات",
+            "finglish": "Al-Mursalaat"
+        }
+    },
+    {
+        "sooreNumber": 78,
+        "start": 5672,
+        "total": 40,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Announcement",
+            "arabic": "النبإ",
+            "finglish": "An-Naba"
+        }
+    },
+    {
+        "sooreNumber": 79,
+        "start": 5712,
+        "total": 46,
+        "origin": "Meccan",
+        "names": {
+            "english": "Those who drag forth",
+            "arabic": "النازعات",
+            "finglish": "An-Naazi'aat"
+        }
+    },
+    {
+        "sooreNumber": 80,
+        "start": 5758,
+        "total": 42,
+        "origin": "Meccan",
+        "names": {
+            "english": "He frowned",
+            "arabic": "عبس",
+            "finglish": "Abasa"
+        }
+    },
+    {
+        "sooreNumber": 81,
+        "start": 5800,
+        "total": 29,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Overthrowing",
+            "arabic": "التكوير",
+            "finglish": "At-Takwir"
+        }
+    },
+    {
+        "sooreNumber": 82,
+        "start": 5829,
+        "total": 19,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Cleaving",
+            "arabic": "الإنفطار",
+            "finglish": "Al-Infitaar"
+        }
+    },
+    {
+        "sooreNumber": 83,
+        "start": 5848,
+        "total": 36,
+        "origin": "Meccan",
+        "names": {
+            "english": "Defrauding",
+            "arabic": "المطففين",
+            "finglish": "Al-Mutaffifin"
+        }
+    },
+    {
+        "sooreNumber": 84,
+        "start": 5884,
+        "total": 25,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Splitting Open",
+            "arabic": "الإنشقاق",
+            "finglish": "Al-Inshiqaaq"
+        }
+    },
+    {
+        "sooreNumber": 85,
+        "start": 5909,
+        "total": 22,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Constellations",
+            "arabic": "البروج",
+            "finglish": "Al-Burooj"
+        }
+    },
+    {
+        "sooreNumber": 86,
+        "start": 5931,
+        "total": 17,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Morning Star",
+            "arabic": "الطارق",
+            "finglish": "At-Taariq"
+        }
+    },
+    {
+        "sooreNumber": 87,
+        "start": 5948,
+        "total": 19,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Most High",
+            "arabic": "الأعلى",
+            "finglish": "Al-A'laa"
+        }
+    },
+    {
+        "sooreNumber": 88,
+        "start": 5967,
+        "total": 26,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Overwhelming",
+            "arabic": "الغاشية",
+            "finglish": "Al-Ghaashiya"
+        }
+    },
+    {
+        "sooreNumber": 89,
+        "start": 5993,
+        "total": 30,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Dawn",
+            "arabic": "الفجر",
+            "finglish": "Al-Fajr"
+        }
+    },
+    {
+        "sooreNumber": 90,
+        "start": 6023,
+        "total": 20,
+        "origin": "Meccan",
+        "names": {
+            "english": "The City",
+            "arabic": "البلد",
+            "finglish": "Al-Balad"
+        }
+    },
+    {
+        "sooreNumber": 91,
+        "start": 6043,
+        "total": 15,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Sun",
+            "arabic": "الشمس",
+            "finglish": "Ash-Shams"
+        }
+    },
+    {
+        "sooreNumber": 92,
+        "start": 6058,
+        "total": 21,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Night",
+            "arabic": "الليل",
+            "finglish": "Al-Lail"
+        }
+    },
+    {
+        "sooreNumber": 93,
+        "start": 6079,
+        "total": 11,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Morning Hours",
+            "arabic": "الضحى",
+            "finglish": "Ad-Dhuhaa"
+        }
+    },
+    {
+        "sooreNumber": 94,
+        "start": 6090,
+        "total": 8,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Consolation",
+            "arabic": "الشرح",
+            "finglish": "Ash-Sharh"
+        }
+    },
+    {
+        "sooreNumber": 95,
+        "start": 6098,
+        "total": 8,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Fig",
+            "arabic": "التين",
+            "finglish": "At-Tin"
+        }
+    },
+    {
+        "sooreNumber": 96,
+        "start": 6106,
+        "total": 19,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Clot",
+            "arabic": "العلق",
+            "finglish": "Al-Alaq"
+        }
+    },
+    {
+        "sooreNumber": 97,
+        "start": 6125,
+        "total": 5,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Power, Fate",
+            "arabic": "القدر",
+            "finglish": "Al-Qadr"
+        }
+    },
+    {
+        "sooreNumber": 98,
+        "start": 6130,
+        "total": 8,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Evidence",
+            "arabic": "البينة",
+            "finglish": "Al-Bayyina"
+        }
+    },
+    {
+        "sooreNumber": 99,
+        "start": 6138,
+        "total": 8,
+        "origin": "Medinan",
+        "names": {
+            "english": "The Earthquake",
+            "arabic": "الزلزلة",
+            "finglish": "Az-Zalzala"
+        }
+    },
+    {
+        "sooreNumber": 100,
+        "start": 6146,
+        "total": 11,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Chargers",
+            "arabic": "العاديات",
+            "finglish": "Al-Aadiyaat"
+        }
+    },
+    {
+        "sooreNumber": 101,
+        "start": 6157,
+        "total": 11,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Calamity",
+            "arabic": "القارعة",
+            "finglish": "Al-Qaari'a"
+        }
+    },
+    {
+        "sooreNumber": 102,
+        "start": 6168,
+        "total": 8,
+        "origin": "Meccan",
+        "names": {
+            "english": "Competition",
+            "arabic": "التكاثر",
+            "finglish": "At-Takaathur"
+        }
+    },
+    {
+        "sooreNumber": 103,
+        "start": 6176,
+        "total": 3,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Declining Day, Epoch",
+            "arabic": "العصر",
+            "finglish": "Al-Asr"
+        }
+    },
+    {
+        "sooreNumber": 104,
+        "start": 6179,
+        "total": 9,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Traducer",
+            "arabic": "الهمزة",
+            "finglish": "Al-Humaza"
+        }
+    },
+    {
+        "sooreNumber": 105,
+        "start": 6188,
+        "total": 5,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Elephant",
+            "arabic": "الفيل",
+            "finglish": "Al-Fil"
+        }
+    },
+    {
+        "sooreNumber": 106,
+        "start": 6193,
+        "total": 4,
+        "origin": "Meccan",
+        "names": {
+            "english": "Quraysh",
+            "arabic": "قريش",
+            "finglish": "Quraish"
+        }
+    },
+    {
+        "sooreNumber": 107,
+        "start": 6197,
+        "total": 7,
+        "origin": "Meccan",
+        "names": {
+            "english": "Almsgiving",
+            "arabic": "الماعون",
+            "finglish": "Al-Maa'un"
+        }
+    },
+    {
+        "sooreNumber": 108,
+        "start": 6204,
+        "total": 3,
+        "origin": "Meccan",
+        "names": {
+            "english": "Abundance",
+            "arabic": "الكوثر",
+            "finglish": "Al-Kawthar"
+        }
+    },
+    {
+        "sooreNumber": 109,
+        "start": 6207,
+        "total": 6,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Disbelievers",
+            "arabic": "الكافرون",
+            "finglish": "Al-Kaafiroon"
+        }
+    },
+    {
+        "sooreNumber": 110,
+        "start": 6213,
+        "total": 3,
+        "origin": "Medinan",
+        "names": {
+            "english": "Divine Support",
+            "arabic": "النصر",
+            "finglish": "An-Nasr"
+        }
+    },
+    {
+        "sooreNumber": 111,
+        "start": 6216,
+        "total": 5,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Palm Fibre",
+            "arabic": "المسد",
+            "finglish": "Al-Masad"
+        }
+    },
+    {
+        "sooreNumber": 112,
+        "start": 6221,
+        "total": 4,
+        "origin": "Meccan",
+        "names": {
+            "english": "Sincerity",
+            "arabic": "الإخلاص",
+            "finglish": "Al-Ikhlaas"
+        }
+    },
+    {
+        "sooreNumber": 113,
+        "start": 6225,
+        "total": 5,
+        "origin": "Meccan",
+        "names": {
+            "english": "The Dawn",
+            "arabic": "الفلق",
+            "finglish": "Al-Falaq"
+        }
+    },
+    {
+        "sooreNumber": 114,
+        "start": 6230,
+        "total": 6,
+        "origin": "Meccan",
+        "names": {
+            "english": "Mankind",
+            "arabic": "الناس",
+            "finglish": "An-Naas"
+        }
+    },
+    {
+        "sooreNumber": 115,
+        "start": 6236,
+        "total": 1,
+        "names": {}
+    }
+]

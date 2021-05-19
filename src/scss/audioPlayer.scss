@@ -1,0 +1,86 @@
+@import 'common';
+@import 'inputRange';
+
+.audio-player-container {
+    position: fixed;
+    bottom: 10px;
+    height: 90px;
+    transition: 1s;
+    background-color: rgba(116, 116, 116, 0.678);
+    width: 50%;
+    border-radius: 10px;
+    @include centeredleft();
+    z-index: 1500;
+    .audio-control-buttons {
+        width: 50%;
+        margin: auto;
+        div {
+            width: 150px;
+            margin: 10px auto;
+        }
+        svg {
+            font-size: 20px;
+            color: rgba(116, 116, 116, 0.884);
+            pointer-events: none;
+        }
+        button {
+            transition: 0.2s;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.788);
+            border: none;
+            border-radius: 50px;
+            margin: 0 5px;
+            box-shadow: 0 0 2px 0 white;
+            border: 1px ridge white;
+        }
+        button:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+    .audio-input {
+        width: 85%;
+        margin: 10px auto;
+        input[type = range] {
+            width: 100%;
+        }
+    }
+}
+
+.scale-up {
+    transform: scale(0.9);
+}
+
+.audio-loading-spinner {
+    position: absolute;
+    top: 5px;
+    height: 25px;
+    right: 10px;
+    font-size: 25px !important;
+    color: rgba(255, 255, 255, 0.767) !important;
+    svg {
+        animation-name: audio-spinner;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes audio-spinner {
+    from {transform: rotate(0);}
+    to   {transform: rotate(360deg);}
+}
+
+.audio-close-icon {
+    position: absolute;
+    left: 10px;
+    font-size: 25px !important;
+    color: rgba(255, 255, 255, 0.767) !important;
+    pointer-events: initial !important;
+}
+@media only screen and (max-width: 700px) {
+    .audio-player-container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,245 @@
+@import 'common';
+
+.aye-main {
+    height: 100%;    
+    background-color: #f6f6f6;
+    overflow: auto;
+    scroll-behavior: smooth;
+    img {
+        width: 100%;
+        margin: 30px auto;
+        display: block;
+    }
+    .aye-container {
+        width: 90%;
+        margin: auto;
+    }
+}
+.aye-text {
+    direction: rtl;
+    width: 100%;
+    background-image: linear-gradient(45deg, rgba(114, 158, 141, 0.78), rgba($color: $primary-color2, $alpha: 0.4));
+    box-shadow: 0 0 5px 0 $primary-color2;
+    height: inherit; 
+    position: relative;
+    border: 1px ridge rgba(0, 158, 137, 0.87);
+    margin: 15px auto ;
+    font-size: 32px;
+    color: rgba(34, 34, 34, 0.733);
+    font-family: osmanTaha;
+    font-weight: 500;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: 0.3s;         
+}
+
+.aye-index {
+    font-size: 20px;
+    font-family: osmanTaha;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url(../assets/images/ayeNumber.png);
+    background-size: cover;
+    position: relative;
+    bottom: 10px;
+    p {
+        position: relative;
+        @include centeredtop();
+        top: 60%;
+    }
+}
+.copied {
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    height: 50px;
+    width: 250px;
+    transform: translateY(-120%);
+    margin: auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.753);
+    transition: 0.5s;
+    p{
+        display: block;
+        color: rgba(0, 0, 0, 0.774);
+        font-size: 18px;
+        font-weight: 700;
+        width: 100%;
+        position: relative;
+        @include centeredtop();
+        
+    }
+}
+
+#lastNode {
+    height: 50px;
+}
+
+
+.ayeText {
+    display: block;
+    height: inherit;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+.ayeTarjome {
+    color: rgba(119, 71, 49, 0.856);
+    margin: 25px 0;
+    height: inherit;
+    font-size: 28px;
+    font-weight: 500;
+    font-family: yekan;
+}
+.aye-page-footer {
+    height: 100px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.aye-page-header {
+    height: 60px;
+    background-color: #838984;
+    box-shadow: 0px 5px 5px 1px rgba(0, 158, 137, 0.39);
+    color: rgba(255, 255, 255, 0.623);
+    text-align: center;
+    font-family: osmanTaha;
+    padding-top: 8px;
+    font-size: 32px;
+    position: sticky;
+    top: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.705) ;
+    z-index: 200;
+    p {
+        position: absolute;
+        @include centeredboth;
+        top: 70%;
+    }
+    
+}
+.settingIcon {
+    position: absolute;
+    right: 10px;
+    @include centeredtop();
+}
+.backtohomeIcon {
+    @extend .settingIcon;
+    left: 10px;
+    color: rgba(255, 255, 255, 0.623);
+}
+path {
+    pointer-events: none;
+}
+.playButton {
+    pointer-events: inherit;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.playButton:hover {
+    font-size: 34px;
+}
+.aye-buttons-container {
+    display: flex;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.aye-texts-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.ayeButtons {
+    width: 20%;
+    margin: 0 auto;
+    position: relative;
+    height: inherit;
+    z-index: 100;
+    div {
+        width: 100%;
+        height: 55px;  
+    }
+    p {
+        font-size: 15px;
+        text-align: center;
+    }
+    svg {
+        position: relative;
+        right: 50%;
+        transform: translateX(50%);
+        top: 10px;
+
+    }
+}
+.scrollTop {
+    position: fixed;
+    display: none;
+    height: 50px;
+    width: 50px;
+    bottom: 10px;
+    right: 10px;
+    transition: 0.5s;
+    svg {
+        font-size: 40px;
+        color: rgba(119, 71, 49, 0.856);
+    }
+}
+
+.tarjome-toggle-button {
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    border-radius: 4px; 
+    background: none;
+    border: 1px ridge rgba(0, 158, 137, 0.87);
+    border-top: none;
+    border-left: none;
+    color: rgba(36, 36, 36, 0.719);
+    font-family: $font-farsi;
+    font-size: 20px;
+    z-index: 100;
+}
+
+.tarjome-loading-spinner {
+    display: inline;
+    height: 50px;
+    z-index: 100;
+    div {
+        width: 42px;
+        margin: auto;
+        height: 42px;
+    }
+    svg {
+        color: rgb(68 65 26 / 58%);
+        font-size: 42px;
+        animation-name: tarjome-spinner;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        position: absolute;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes tarjome-spinner {
+    from {transform: rotate(0);}
+    to {transform: rotate(360deg);}
+}
+
+@media only screen and (min-width: 900px) {
+    .aye-main {
+        .aye-container {
+            width: 70%;
+        }
+        img {
+            width: 50%;
+        }
+    }
+    .aye-text {
+        padding: 0 100px;
+    }
+}
