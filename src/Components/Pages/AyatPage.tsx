@@ -287,7 +287,7 @@ export default class AyatPage extends React.Component<propsType, state> {
                             {ayeName}
                         </p>
                     </div>
-
+                    
                     {sooreNumber !== 9 && <img loading="lazy" src={logo} alt="Bismillah" />}
 
                     <div ref={this.spinnerRef} className="aye-spinner">
