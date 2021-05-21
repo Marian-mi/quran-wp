@@ -73,13 +73,12 @@
     left: 40px;
     @include centeredtop();
     width: 20px;
-    // transform: rotate(180deg);
     transition: 0.5s;
     height: 20px;
     text-align: center;
     pointer-events: none;
     font-size: 40px;
-}
+} 
 
 .setting-body {
     overflow: hidden;

@@ -58,7 +58,7 @@ export default class SooreListPage extends React.Component<props, state> {
                     style={Linkstyle}
                     key={item[i].sooreNumber}
                     to={{
-                        pathname: `/Aye/${item[i].names.english}`,
+                        pathname: "/Aye",
                         state: {
                             start: item[i].start,
                             end: item[i].start + item[i].total,

@@ -1,6 +1,6 @@
 import { faArrowAltCircleDown, faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface Props {
     children: JSX.Element | JSX.Element[],
@@ -10,11 +10,21 @@ interface Props {
 
 const Accordion = ({ children, headerText, className }: Props): JSX.Element => {
     const [isOpen, setIsOpen] = useState(false);
+    const heightRef = useRef(0)
+    const bodyRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (bodyRef.current) {
+            const height = bodyRef.current.scrollHeight;
+            heightRef.current = height;
+        }
+    }, [])
+
     return (
         <>
             <SettingHeader text={headerText} toggleSetting={setIsOpen} isOpen={isOpen} />
-            <div className={className}>
-                {isOpen && children}
+            <div className={className} ref={bodyRef} style={{ height: isOpen ? heightRef.current : 0}}>
+                {children}
             </div>
         </>
     );

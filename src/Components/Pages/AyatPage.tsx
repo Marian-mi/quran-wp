@@ -14,8 +14,6 @@ const AudioPlayer = lazy(() => import('../AudioPlayer/AudioControlPanel'));
 const Setting = lazy(() => import('../Setting/Setting'));
 
 const getTranslation = async (name: string) => {
-    // const modules = import.meta.glob('../../assets/ts/tarjomeh/fa.*.ts');
-    // const module = await modules[`../../assets/ts/tarjomeh/fa.${name}.ts`]();
     const module = await import(`../../assets/ts/tarjomeh/fa.${name}.ts`);
     return module.default;
 };
@@ -112,7 +110,7 @@ export default class AyatPage extends React.Component<propsType, state> {
         return buttons;
     }
 
-    onAyeChange = (e: MouseEvent | KeyboardEvent): void => {
+    onAyeChange = (e: React.MouseEvent | React.KeyboardEvent ): void => {
         const target = e.currentTarget as HTMLDivElement;
         const index = target.getAttribute('ayeno') as string;
         const param = this.props.location.state.sooreNumber === 1 ? +index + 1 : +index;
@@ -292,8 +290,9 @@ export default class AyatPage extends React.Component<propsType, state> {
 
                     {sooreNumber !== 9 && <img loading="lazy" src={logo} alt="Bismillah" />}
 
-                    <div ref={this.spinnerRef} className="tarjome-loading-spinner">
-                        <div><FontAwesomeIcon icon={faSpinner} /></div>
+                    <div ref={this.spinnerRef} className="aye-spinner">
+                        <div></div>
+                        <div></div>
                     </div>
 
                     {quranText.map((item, index) => {

@@ -39,9 +39,50 @@ svg:hover {
   cursor: pointer;
 }
 
-input[type = submit] {
+input[type="submit"] {
   cursor: pointer;
 }
 
+#root {
+  position: relative;
+}
 
+@mixin spinner($size, $border-s: 11px) {
+  position: absolute;
+  z-index: 50;
+  width: $size;
+  height: $size;
+  border-radius: 50px;
+  background-image: linear-gradient(45deg, rgba(0, 158, 137, 0.253), rgba(145, 88, 50, 0.247));
+  div {
+    border-radius: 50px;
+    width: $size;
+    height: $size;
+    position: absolute;
+    border: $border-s solid rgb(107 107 107 / 40%);
+    border-top: $border-s solid rgb(125 30 17 / 60%);
+    animation: spinners 2s ease-in-out 0s infinite;
+  }
+  div:last-child {
+    animation: spinners1 2s ease-in-out 0s infinite;
+    border-top: $border-s solid rgb(0 88 115 / 50%);
+  }
+}
 
+@keyframes spinners {
+  0%{
+    transform: rotate(0);
+  }
+  50%, 100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinners1 {
+  0%, 50%{
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

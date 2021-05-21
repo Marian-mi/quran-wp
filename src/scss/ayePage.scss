@@ -37,17 +37,16 @@
 .aye-index {
     font-size: 20px;
     font-family: osmanTaha;
-    display: inline-block;
+    display: inline-flex;
     width: 50px;
     height: 50px;
     background-image: url(../assets/images/ayeNumber.png);
     background-size: cover;
-    position: relative;
     bottom: 10px;
     p {
-        position: relative;
-        @include centeredtop();
-        top: 60%;
+        width: 35px;
+        height: 35px;
+        margin: auto;
     }
 }
 .copied {
@@ -202,33 +201,15 @@ path {
     z-index: 100;
 }
 
-.tarjome-loading-spinner {
-    display: inline;
-    height: 50px;
-    z-index: 100;
-    div {
-        width: 42px;
-        margin: auto;
-        height: 42px;
-    }
-    svg {
-        color: rgb(68 65 26 / 58%);
-        font-size: 42px;
-        animation-name: tarjome-spinner;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        position: absolute;
-    }
+.aye-spinner {
+    @include spinner(60px, 6px);
+    @include centeredleft();
 }
 
 .hidden {
     display: none;
 }
 
-@keyframes tarjome-spinner {
-    from {transform: rotate(0);}
-    to {transform: rotate(360deg);}
-}
 
 @media only screen and (min-width: 900px) {
     .aye-main {

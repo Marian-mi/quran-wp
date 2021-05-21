@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props */
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 type props = {
     id?: number | string;
@@ -8,32 +8,24 @@ type props = {
     className: string;
     index: number;
     ayeNumber?: number;
-    ayeChangeHandler(e: MouseEvent | KeyboardEvent): void;
+    ayeChangeHandler(e: React.MouseEvent | React.KeyboardEvent): void;
 }
 
 function AyeButtons({
     id, textData, icon, className, ayeNumber, ayeChangeHandler, index,
 }: props): JSX.Element {
-    const playButtonRef = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-        if (playButtonRef.current) {
-            playButtonRef.current.addEventListener('click', (e) => {
-                ayeChangeHandler(e);
-            });
-        }
-        return () => {
-            playButtonRef.current?.removeEventListener('click', (e) => {
-                ayeChangeHandler(e);
-            });
-        };
-    }, []);
     if (index === 0) {
         return (
             <div
                 className={className}
                 ayeno={ayeNumber}
                 id={id as string}
-                ref={playButtonRef}
+                onClick={(e) => { ayeChangeHandler(e) }}
+                onKeyUp={(e) => {
+                    if (e.key === 'Enter') ayeChangeHandler(e);
+                }}
+                role="button"
+                tabIndex={ayeNumber}
             >
                 <div>{icon}</div>
                 <p>
