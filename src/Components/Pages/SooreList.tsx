@@ -51,21 +51,14 @@ export default class SooreListPage extends React.Component<props, state> {
 
     itemMaker =
     (i: number, item: suraData[],
-        Linkstyle: Record<string, unknown>, count: number): JSX.Element | null => {
+        count: number): JSX.Element | null => {
         if (item[i].origin !== undefined) {
+            const { sooreNumber } = item[i]
             return (
                 <Link
-                    style={Linkstyle}
+                    className="link-style"
                     key={item[i].sooreNumber}
-                    to={{
-                        pathname: "/Aye",
-                        state: {
-                            start: item[i].start,
-                            end: item[i].start + item[i].total,
-                            sooreNumber: (count + i + 1),
-                            ayeName: item[i].names.arabic,
-                        },
-                    }}
+                    to={`/Aye/${sooreNumber}`}
                 >
                     <SooreList
                         arabicName={item[i].names.arabic}
@@ -90,7 +83,7 @@ export default class SooreListPage extends React.Component<props, state> {
         const item = suraData.slice((index), index + 11);
         for (let i = 0; i < j; i += 1) {
             if (index + i > (suraData.length - 1)) return;
-            arr.push(this.itemMaker(i, item, { textDecoration: 'none' }, index));
+            arr.push(this.itemMaker(i, item, index));
             if (i === j - 1) { this.stateUpdater(arr, index); }
         }
     }

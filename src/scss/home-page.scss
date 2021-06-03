@@ -163,6 +163,10 @@ body,
   direction: rtl;
 }
 
+.link-style {
+  text-decoration: none;
+}
+
 .home-page-spinner {
   @include spinner(60px, 6px);
   @include centeredleft();

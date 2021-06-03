@@ -1,26 +1,55 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const mode = process.env.NODE_ENV;
 /** @type { import('webpack').Configuration } */
 
+
 exports.Common = () => ({
-    entry: './src/main.tsx',
+    context: path.resolve(__dirname, '../src'),
+
+    output: {
+        path: path.resolve(process.cwd(), 'build'),
+        filename: 'static/js/[name].[contenthash:8].js',
+        chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
+        assetModuleFilename: 'static/media/[contenthash:8][ext][query]',
+        clean: true,
+        publicPath: '/',
+    },
     resolve: {
         extensions: [".tsx", ".ts", ".js"],
     },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
-                use: ['babel-loader'],
+                use: [
+                    {
+                        loader: require.resolve('babel-loader'),
+                        options: {
+                            babelrc: false,
+                            configFile: false,
+                            compact: false,
+                            presets: [
+                                "@babel/preset-env",
+                                "@babel/preset-react",
+                                "@babel/preset-typescript",
+                            ],
+                            plugins: [
+                                ["@babel/plugin-transform-runtime",
+                                    {
+                                        "regenerator": true
+                                    }
+                                ],
+                                mode === 'development'
+                                && require.resolve('react-refresh/babel'),
+                            ].filter(Boolean),
+                            sourceMaps: true,
+                            inputSourceMap: true,
+                        },
+                    }
+                ],
             },
-            {
-                test: /\.(ts|tsx)$/,
-                exclude: /node_modules/,
-                use: ['ts-loader'],
-            },
-
             {
                 test: /\.(png|jpe?g)$/,
                 type: "asset/resource",
@@ -44,6 +73,5 @@ exports.Common = () => ({
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
         }),
-        new CleanWebpackPlugin(),
     ]
 })

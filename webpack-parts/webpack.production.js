@@ -1,22 +1,30 @@
 const path = require('path');
 const webpack = require('webpack');
-const CopyPlugin = require('copy-webpack-plugin');
+const wpCopyPlugin = require('copy-webpack-plugin');
 const miniCssPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
+
 
 /** @type { import('webpack').Configuration } */
 
 exports.production = () => ({
-    output: {
-        path: path.resolve(process.cwd(), 'build'),
-        filename: 'static/js/[name].[contenthash:8].js',
-        chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
-        assetModuleFilename: 'static/media/[contenthash:8][ext][query]',
-        clean: true,
+    entry: './main.tsx',
+    cache: {
+        type: 'filesystem'
     },
     optimization: {
+        moduleIds: 'deterministic',
+        runtimeChunk: 'single',
         splitChunks: {
-            chunks: 'all',
-        }
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                },
+            },
+        },
     },
     devtool: false,
     module: {
@@ -25,7 +33,7 @@ exports.production = () => ({
         ]
     },
     plugins: [
-        new CopyPlugin(copyPlgOPts),
+        new wpCopyPlugin(wpCopyPluginOptions),
         new miniCssPlugin({
             filename: './static/css/[contenthash:8].[name].css',
             chunkFilename: 'static/css/[name].[contenthash:8].chunk.css'
@@ -33,23 +41,20 @@ exports.production = () => ({
         new webpack.SourceMapDevToolPlugin({
             filename: 'static/js/[name].[contenthash:8].js.map',
         }),
+        new CleanWebpackPlugin(),
+        new InjectManifest({
+            swSrc: '../public/serviceWorker.js',
+        })
     ],
     devServer: {
         contentBase: path.resolve(process.cwd(), 'bulid'),
+        watchContentBase: true,
         port: 8080,
+        hot: true,
+        historyApiFallback: true,
+        compress: true,
     }
 })
-
-const copyPlgOPts = {
-    patterns: [
-        {
-            from: path.resolve(__dirname, "../public/manifest.json"),
-        },
-        {
-            from: path.resolve(__dirname, "../public/RCserviceworker.js"),
-        },
-    ],
-}
 
 const cssLoaders = () => ({
     test: /\.(s?css)$/,
@@ -79,3 +84,17 @@ const cssLoaders = () => ({
     ],
     sideEffects: true,
 })
+
+const wpCopyPluginOptions = {
+    patterns: [
+        {
+            from: path.resolve(process.cwd(), 'public/logo1.jpg'),
+        },
+        {
+            from: path.resolve(process.cwd(), 'public/logo2.png'),
+        },
+        {
+            from: path.resolve(process.cwd(), 'public/manifest.json'),
+        }
+    ],
+}

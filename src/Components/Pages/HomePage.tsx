@@ -1,7 +1,9 @@
 import React from 'react';
 import '../../scss/home-page.scss';
 import logo from '../../assets/images/images.jpg';
-import SearchField from '../SearchBox';
+import { Suspense } from 'react';
+
+const SearchField = React.lazy(() => import('../SearchBox'));
 
 function Homepage(): JSX.Element {
     return (
@@ -20,7 +22,9 @@ function Homepage(): JSX.Element {
                             <p>The Noble Quran</p>
 
                         </div>
-                        <SearchField />
+                        <Suspense fallback={<div />}>
+                            <SearchField />
+                        </Suspense>
                     </div>
                     <div className="quran-font-image" />
                 </div>

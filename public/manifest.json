@@ -2,7 +2,18 @@
     "short_name": "Quran",
     "name": "The holy quran",
     "start_url": ".",
-    
+    "icons": [
+        {
+            "src": "./logo1.jpg",
+            "type": "image/jpg",
+            "sizes": "192x192"
+        },
+        {
+            "src": "./logo2.png",
+            "type": "image/png",
+            "sizes": "310x310"
+        }
+    ],
     "background_color": "#3367D6",
     "display": "standalone",
     "scope": "/",

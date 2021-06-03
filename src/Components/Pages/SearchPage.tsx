@@ -9,7 +9,7 @@ import { englishNumberToPersian } from '../AyeContainer';
 
 type resObj = {
     item: string, index: number, cnt: number, start: number, end: number, ayeName: string
- }[]
+}[]
 
 export default function SearchPage(): JSX.Element {
     const [query, setQuery] = useState('');
@@ -38,8 +38,8 @@ export default function SearchPage(): JSX.Element {
             for (let i = 0; i < Qurantext.length; i += 1) {
                 const pattern = RegExp(query, 'gi');
                 const textWithoutArab = Qurantext[i]
-                // eslint-disable-next-line
-                .replace(/[ ْ ٌ ٍ ً ُ ِ َ ّ]/g, '')
+                    // eslint-disable-next-line
+                    .replace(/[ ْ ٌ ٍ ً ُ ِ َ ّ]/g, '')
                     .replace(/[إأآ]/g, 'ا')
                     .replace(/[ئ ي]/g, 'ی');
 
@@ -55,7 +55,6 @@ export default function SearchPage(): JSX.Element {
                         }
                     });
 
-                    // if ( i < 7) {--i};
                     const info = {
                         item: Qurantext[i],
                         index: i,
@@ -80,37 +79,14 @@ export default function SearchPage(): JSX.Element {
 
     useEffect(() => {
         if (results !== undefined) {
-            const linkStyle = { textDecoration: 'none' };
             const res = results.map((item, index) => {
                 const ayeData = `سوره ${item.ayeName} -- آیه شماره ${englishNumberToPersian((item.index - item.start + 1))}`;
                 if (index !== 0) {
                     return (
-                        <Link
-                            key={item.index}
-                            style={linkStyle}
-                            className="searchPageLinks"
-                            to={{
-                                pathname: '/Aye',
-                                state: {
-                                    start: item.index,
-                                    end: item.end,
-                                    ayeName: item.ayeName,
-                                    sooreNumber: item.cnt,
-                                    isComingFromSearch: true,
-                                    scrolltoAye: (item.index - item.start + 1),
-                                    ayatCount: (item.end - item.start),
-                                },
-                            }}
-                        >
-                            <div className="search-result" key={item.index - item.start + 1}>
-                                <p>
-                                    {item.item}
-                                </p>
-                                <p>
-                                    {ayeData}
-                                </p>
-                            </div>
-                        </Link>
+                        <SearchResults 
+                            data={item}
+                            ayeInformation={ayeData}
+                        />
                     );
                 } return null;
             });
@@ -189,3 +165,33 @@ export default function SearchPage(): JSX.Element {
         </div>
     );
 }
+
+type resProps = {
+    data: {
+        index: number;
+        cnt: number;
+        start: number;
+        item: string;
+    }
+    ayeInformation: string
+}
+
+const SearchResults = ({ data, ayeInformation }: resProps) => (
+    <Link
+        key={data.index}
+        className="searchPageLinks"
+        to={`/Aye/${data.cnt}?${data.index - data.start + 1}`}
+        style={{
+            textDecoration: 'none',
+        }}
+    >
+        <div className="search-result" key={data.index - data.start + 1}>
+            <p>
+                {data.item}
+            </p>
+            <p>
+                {ayeInformation}
+            </p>
+        </div>
+    </Link>
+)

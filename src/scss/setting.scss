@@ -1,56 +1,95 @@
 @import 'common';
 
 .setting-container {
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 80%;
     background-color: rgba(128, 128, 128, 0.404);
     position: fixed;
-    right: 0;
-    z-index: 2000;
+    top: 10%;
+    right: 20%;
+    z-index: -1;
     opacity: 0;
-    transform: translateX(100%);
-    transition: 0.5s;
-    overflow: auto;
-}
-
-.closeicon {
-    position: absolute;
-    height: 100%;
-    z-index: 4000;
-    left: 10px;
-    svg {
-        position: absolute;
-        @include centeredtop();
-        font-size: 40px;
-        color: rgba(255, 255, 255, 0.705);
+    transition: 0.3s;
+    border-radius: 10px;
+    display: none;
+    &:hover {
+        box-shadow: 0 0 10px 2px $primary-color2;
     }
 }
 
 .settingOpen {
-    transform: translateX(0);
     opacity: 1;
+    z-index: 3000;
+    overflow: auto;
+    overflow-x: hidden;
+    display: block;
+    transform: scale(1);
+    animation: setting-open;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+@keyframes setting-open {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(0.97);
+    }
+    75% {
+        transform: scale(1.03);
+    }
 }
 
 .setting-headers {
     height: 80px;
     background-color: $primary-color2;
-    position: relative;   
+    display: flex;
+    position: relative;
+    user-select: none;
     p {
-        text-align: right;
-        position: relative;
-        @include centeredtop();
+        text-align: center;
+        margin: auto;
         color: rgba(255, 255, 255, 0.705);
         font-size: 30px;
         font-family: $font-farsi;
         font-weight: 500;
+    }
+    svg {
+        position: absolute;
+        @include centeredtop();
+        font-size: 36px;
+        right: -50px;
+        color: rgba(255, 255, 255, 0.603);
+        transition: 0.3s;
+    }
+    &:hover svg {
         right: 20px;
+        display: block;
+        animation: setting-close-icon;
+        animation-delay: 0.3s;
+        animation-duration: 0.2s;
+        animation-timing-function: ease-in-out;
+    }
+}
+
+@keyframes setting-close-icon{
+    0%, 100% {
+        right: 20px;
+    }
+    25% {
+        right: 23px;
+    }
+    50% {
+        right: 17px;
     }
 }
 
 .setting-body-container {
     position: relative;
-    width: 90%;
-    margin: auto;
     top: 30px;
 }
 
@@ -58,14 +97,26 @@
     height: 70px;
     direction: rtl;
     background-color: $primary-color2;
-    padding: 20px 40px;
     position: relative;
     color: rgba(255, 255, 255, 0.692);
     font-family: $font-farsi;
     font-size: 22px;
-    border: 1px solid white;
+    display: flex;
+    padding-right: 30px;
+    align-items: center;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
     cursor: pointer;
+    user-select: none;
     margin: 10px 0;
+    opacity: 1;
+    transition: 0.5s;
+    transform: scale(1);
+}
+
+.header-not-visible {
+    opacity: 0;
+    transform: scale(1.2);
 }
 
 .body-headers-icon {
@@ -83,10 +134,6 @@
 .setting-body {
     overflow: hidden;
     transition: 0.5s;
-}
-
-.setting-open {
-    border: none;
 }
 
 .qari-select-container {
@@ -141,7 +188,7 @@
 }
 
 .qari-options-container {
-    height: 100%;
+    height: inherit;
     transition: 0.5s;
     overflow: auto;
     background-color: white;
@@ -193,14 +240,13 @@
     padding: 20px 30px; 
     background-color: white;
     font-size: 20px;
+    height: 100px;
     font-family: $font-farsi;
     font-weight: 500;
     color: $primary-color2;
     text-align: center;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
     transition: 0.5s;
+    display: flex;
     > div {
         width: 30%;
         margin: auto;
@@ -214,10 +260,6 @@
 
 
 @media only screen and (min-width: 900px) {
-    .setting-body-container {
-        margin: auto;
-        width: 70%;
-    }
     .qari-options {
         button {
             width: 150px;
@@ -226,5 +268,20 @@
         select {
             width: 250px;
         }
+    }
+    
+}
+
+@media (max-width: 900px) {
+    .setting-container {
+        width: 80%;
+        right: 10%;
+    }
+}
+
+@media (max-width: 400px){
+    .setting-container {
+        width: 90%;
+        right: 5%;
     }
 }

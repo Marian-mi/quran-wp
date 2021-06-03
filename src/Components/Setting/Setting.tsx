@@ -4,6 +4,8 @@ import '../../scss/setting.scss';
 import FontSizeButtons from './FontSizeButton';
 import RecitersList from './RecitersList';
 import Accordion from './Accordion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 type Props = {
     tarjomeSelection(index: number): void;
@@ -42,12 +44,21 @@ const Settings = ({ tarjomeSelection, qariChange, selectedTarjomeIndex }: Props)
         <div className="setting-container" onClick={closeSetting} role="button" tabIndex={0}>
             <div className="setting-headers">
                 <p>تنظیمات</p>
+                <FontAwesomeIcon
+                    icon={faTimesCircle}
+                    className="setting-close-icon"
+                    onClick={() => {
+                        const settingContainer = document.querySelector('.setting-container') as HTMLDivElement
+                        settingContainer.classList.remove('settingOpen');
+                    }}
+                />
             </div>
             <div className="setting-body-container">
 
                 <Accordion
                     className="setting-body"
                     headerText="انتخاب سایز فونت"
+                    id={1}
                 >
                     <>
                         <FontSizeButtons
@@ -66,6 +77,7 @@ const Settings = ({ tarjomeSelection, qariChange, selectedTarjomeIndex }: Props)
                 <Accordion
                     className="qari-select-container"
                     headerText="انتخاب قاری"
+                    id={2}
                 >
                     <div className="Qari-select">
                         <RecitersList
@@ -77,6 +89,7 @@ const Settings = ({ tarjomeSelection, qariChange, selectedTarjomeIndex }: Props)
                 <Accordion
                     className="tarjome-select-container"
                     headerText="انتخاب ترجمه"
+                    id={3}
                 >
                     {translatorsName.map((reciter, index) => (
                         <div

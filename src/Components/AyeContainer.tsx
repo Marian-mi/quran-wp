@@ -13,10 +13,10 @@ type Props = {
     children: JSX.Element;
 }
 
-function AyeContainer({
+const AyeContainer = React.memo(({
     ayeText, ayatCount, tarjomeText, isComingFromSearch,
     startingAye, index, children, fontSize, color,
-}: Props): JSX.Element {
+}: Props): JSX.Element => {
     return (
         <div className="aye-text" style={{ color }}>
             <div className="aye-texts-container">
@@ -24,7 +24,6 @@ function AyeContainer({
                     className="ayeText ayeitself"
                     style={{ fontSize: fontSize[0] }}
                 >
-
                     {ayeText}
 
                     {!isComingFromSearch
@@ -54,7 +53,7 @@ function AyeContainer({
             {children}
         </div>
     );
-}
+})
 
 export default AyeContainer;
 

@@ -1,14 +1,17 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../scss/ayePage.scss';
 import {
-    faChevronCircleLeft, faChevronCircleUp, faCog, faCopy, faPlayCircle, faShare, faSpinner,
+    faChevronCircleLeft, faChevronCircleUp, faChevronLeft, faChevronRight, faCog, faCopy, faPlayCircle, faShare,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Buttons from '../AyeButton';
 import logo from '../../assets/images/bismillah.png';
 import ErrorBoundary from '../ErrorBoundary';
 import AyeContainer from '../AyeContainer';
+import suraData from '../../assets/ts/sura-data.json';
+import { useHistory } from 'react-router';
+
 
 const AudioPlayer = lazy(() => import('../AudioPlayer/AudioControlPanel'));
 const Setting = lazy(() => import('../Setting/Setting'));
@@ -19,9 +22,14 @@ const getTranslation = async (name: string) => {
 };
 
 const getQuranText = async () => {
-    const module = await import('../../assets/ts/quran-simple-plain');
+    const module = await import(/* webpackPreload: true */ '../../assets/ts/quran-simple-plain');
     return module.default;
 };
+
+type propsType = {
+    match: { params: { sooreNumber: string } }
+    location: { search: string }
+}
 
 declare module 'react' {
     interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
@@ -32,41 +40,35 @@ declare module 'react' {
         testid?: string;
     }
 }
-type propsType = {
-    location: {
-        state: {
-            start: number;
-            end: number;
-            ayeName: string;
-            sooreNumber: number;
-            isComingFromSearch: boolean;
-            scrolltoAye: number;
-            ayatCount: number;
-        }
-    }
-}
 
 type state = {
-    ayeCounter: number;
+    renderFrom: number;
+    renderTo: number;
     selectedTarjome: string[];
     qari: string;
     quranText: string[];
     currentDivIndex: number;
     fontSize: string[];
     tarjomeIndex: string;
+    prevScrollPosition: HTMLDivElement | null;
 }
 
 export default class AyatPage extends React.Component<propsType, state> {
     constructor(props: propsType) {
         super(props);
         this.state = {
-            ayeCounter: 0,
+            renderFrom: 0,
+            renderTo: 20,
             selectedTarjome: [],
             quranText: [],
             qari: localStorage.getItem('qariName') ?? 'Alafasymp3',
             currentDivIndex: 0,
-            fontSize: ['35px', '26px'],
+            fontSize: [
+                localStorage.getItem('ayeFont') ?? '35px',
+                localStorage.getItem('tarjomeFont') ?? '26px',
+            ],
             tarjomeIndex: localStorage.getItem('tarjomeFile') ?? '0',
+            prevScrollPosition: null,
         };
     }
 
@@ -95,14 +97,16 @@ export default class AyatPage extends React.Component<propsType, state> {
     ]
 
     buttonMaker = (ayeNumber: number): JSX.Element[] => {
-        const { scrolltoAye, isComingFromSearch } = this.props.location.state;
+        const { sooreNumber } = this.props.match.params;
+        const { renderFrom } = this.state;
+        const ayeIndex = (+sooreNumber === 1) ? ayeNumber + 2 : ayeNumber + 1;
         const buttons = this.buttonsData.map((item, index) => (
             <Buttons
                 className="ayeButtons"
                 textData={item.textData}
                 icon={item.icon}
                 index={index}
-                ayeNumber={isComingFromSearch ? scrolltoAye + ayeNumber : ayeNumber + 1}
+                ayeNumber={renderFrom + ayeIndex}
                 ayeChangeHandler={this.onAyeChange}
                 key={item.id}
             />
@@ -110,11 +114,10 @@ export default class AyatPage extends React.Component<propsType, state> {
         return buttons;
     }
 
-    onAyeChange = (e: React.MouseEvent | React.KeyboardEvent ): void => {
+    onAyeChange = (e: React.MouseEvent | React.KeyboardEvent): void => {
         const target = e.currentTarget as HTMLDivElement;
         const index = target.getAttribute('ayeno') as string;
-        const param = this.props.location.state.sooreNumber === 1 ? +index + 1 : +index;
-        this.setCurrentDivIndex(param);
+        this.setCurrentDivIndex(+index);
     }
 
     setCurrentDivIndex = (index: number): void => {
@@ -127,7 +130,7 @@ export default class AyatPage extends React.Component<propsType, state> {
         if (entry[0].isIntersecting) {
             this.observerCallback();
         }
-    }, { threshold: 0.3 });
+    }, { threshold: 0.6 });
 
     textDataLoader = async (index: number): Promise<void> => {
         this.observer.disconnect();
@@ -137,8 +140,9 @@ export default class AyatPage extends React.Component<propsType, state> {
         const textFile = await getQuranText();
 
         const ayeText = textFile.filter((item, index) => {
-            const { start, end } = this.props.location.state;
-            if (index >= start && index < end) {
+            const sooreIndex = this.props.match.params.sooreNumber;
+            const { start, total } = suraData[+sooreIndex - 1];
+            if (index >= start && index < total + start) {
                 return item;
             } return false;
         });
@@ -159,25 +163,16 @@ export default class AyatPage extends React.Component<propsType, state> {
     }
 
     observerCallback = (): void => {
-        const { quranText, ayeCounter } = this.state;
-
-        const mainContainer = this.mainContainerRef.current as HTMLDivElement;
-        const currentScrollPosition = mainContainer.scrollTop;
-        const index = ayeCounter;
-        if (index > quranText.length) return;
-        this.stateUpdater(currentScrollPosition);
+        const { quranText, renderTo } = this.state;
+        if (renderTo > quranText.length) return;
+        this.stateUpdater();
     }
 
-    stateUpdater =
-        (prevScrollHeight: number): void => {
-            this.setState((state) => ({
-                ayeCounter: state.ayeCounter + 20,
-            }));
-
-            if (this.mainContainerRef.current) {
-                this.mainContainerRef.current.scrollTop = prevScrollHeight;
-            }
-        }
+    stateUpdater = (): void => {
+        this.setState((state) => ({
+            renderTo: state.renderTo + 20,
+        }));
+    }
 
     showCopyNotif = (): void => {
         const copyAlert = this.copyNotifRef.current;
@@ -197,19 +192,29 @@ export default class AyatPage extends React.Component<propsType, state> {
         } else {
             this.textDataLoader(0);
         }
-
         window.scrollTo(0, 0);
+        const { search } = this.props.location;
+        if (search) {
+            const number = +(search.replace('?', ''));
+            this.jumpTo(number);
+        }
+    }
+
+    jumpTo = (index: number) => {
+        this.setState({
+            renderFrom: index - 1,
+            renderTo: index + 19,
+        })
+        this.scrollToTop();
     }
 
     componentDidUpdate(prevProps: propsType, prevState: state): void {
-        const { isComingFromSearch, scrolltoAye } = this.props.location.state;
-        const { currentDivIndex } = this.state;
+        const { currentDivIndex, renderFrom, renderTo } = this.state;
         if (currentDivIndex !== prevState.currentDivIndex && this.ayeCointinerRef.current) {
             const mainContChildren = this.ayeCointinerRef.current.children;
-            const { sooreNumber } = this.props.location.state;
-            let index = currentDivIndex + 2;
-            if (sooreNumber === 1 || sooreNumber === 9) index -= 1;
-            if (isComingFromSearch) index = index - scrolltoAye + 1;
+            const { sooreNumber } = this.props.match.params;
+            let index = currentDivIndex + 2 - renderFrom;
+            if (+sooreNumber === 1 || +sooreNumber === 9) index -= 1;
             if (index > 1) {
                 const targetChild = mainContChildren[index] as HTMLDivElement;
                 const scrollAmount = targetChild.offsetTop - 100;
@@ -255,18 +260,22 @@ export default class AyatPage extends React.Component<propsType, state> {
     }
 
     render(): JSX.Element {
+        const { sooreNumber } = this.props.match.params;
         const {
-            isComingFromSearch, ayatCount, sooreNumber, ayeName, scrolltoAye, start,
-        } = this.props.location.state;
+            names, start,
+        } = suraData[+sooreNumber - 1];
 
-        const totalAyats = isComingFromSearch ? ayatCount : this.state.quranText.length;
+        const totalAyats = this.state.quranText.length;
 
         const {
-            ayeCounter, fontSize, quranText, selectedTarjome, currentDivIndex,
+            renderTo, fontSize, quranText, selectedTarjome, currentDivIndex, renderFrom,
         } = this.state;
+
+        const ayatToRender = quranText.slice(renderFrom, renderTo);
 
         return (
             <div className="aye-main" onScroll={this.displayScrollButton} ref={this.mainContainerRef}>
+                <JumpToAye jumpFunc={this.jumpTo} total={totalAyats} />
                 <Suspense fallback={<div />}>
                     <Setting
                         qariChange={this.qariChangeHandler}
@@ -284,34 +293,29 @@ export default class AyatPage extends React.Component<propsType, state> {
                         </div>
                         <FontAwesomeIcon icon={faCog} onClick={this.openSetting} className="settingIcon" />
                         <p>
-                            {ayeName}
+                            {names.arabic}
                         </p>
                     </div>
-                    
-                    {sooreNumber !== 9 && <img loading="lazy" src={logo} alt="Bismillah" />}
+
+                    {+sooreNumber !== 9 && <img loading="lazy" src={logo} alt="Bismillah" />}
 
                     <div ref={this.spinnerRef} className="aye-spinner">
                         <div></div>
                         <div></div>
                     </div>
 
-                    {quranText.map((item, index) => {
-                        if (index > ayeCounter - 1) return undefined;
-                        let divIndex = !isComingFromSearch
-                            ? currentDivIndex - 1
-                            : currentDivIndex - scrolltoAye;
-                        if (sooreNumber === 1 || sooreNumber === 9) divIndex -= 1;
+                    {ayatToRender.map((item, index) => {
+                        let divIndex = currentDivIndex - 1
+                        if (+sooreNumber === 1) divIndex -= 1;
                         return (
                             <AyeContainer
-                                ayatCount={ayeCounter}
+                                ayatCount={renderTo}
                                 ayeText={item}
-                                tarjomeText={selectedTarjome[start + index - 1]}
-                                isComingFromSearch={isComingFromSearch}
-                                startingAye={scrolltoAye}
-                                index={index}
+                                tarjomeText={selectedTarjome[renderFrom + start + index - 1]}
+                                index={renderFrom + index}
                                 key={index}
                                 fontSize={fontSize}
-                                color={index === divIndex
+                                color={index + renderFrom === divIndex
                                     ? 'rgba(22, 114, 109, 0.815)'
                                     : 'rgba(34, 34, 34, 0.733)'}
                             >
@@ -329,7 +333,7 @@ export default class AyatPage extends React.Component<propsType, state> {
                         <Suspense fallback={<div />}>
                             <AudioPlayer
                                 selectedQari={this.state.qari}
-                                soreNumber={sooreNumber}
+                                soreNumber={+sooreNumber}
                                 totalAyats={totalAyats}
                                 currentDivIndex={this.state.currentDivIndex}
                                 onAyeChange={this.setCurrentDivIndex}
@@ -365,3 +369,61 @@ const copyFunction = (e: React.MouseEvent) => {
     document.execCommand('copy');
     window.getSelection()?.removeAllRanges();
 };
+
+
+type jumpProps = {
+    jumpFunc(p1: number): void;
+    total: number;
+}
+const JumpToAye = ({ jumpFunc, total }: jumpProps) => {
+    const [jumpTo, setJumpTo] = useState<null | number>(null);
+    const [message, setMessage] = useState('');
+    const [isOpen, setisOpen] = useState(false)
+    const jump = () => {
+        if (!jumpTo) {
+            setMessage('Enter a number');
+            return false
+        }
+        if (jumpTo < 0 || jumpTo > total) {
+            setMessage(`Total Ayat: ${total}`)
+            return false
+        }
+        jumpFunc(jumpTo);
+        return true;
+    }
+    return (
+        <div className={isOpen ? "jump-to jump-to-open" : "jump-to"}>
+            <input
+                type="number"
+                onChange={(e) => {
+                    setJumpTo(+(e.target.value));
+                }}
+                onKeyUp={(e) => {
+                    if (e.key === 'Enter') {
+                        const res = jump();
+                        res && setisOpen(false);
+                    }
+
+                }}
+            />
+            <button
+                onClick={() => {
+                    const res = jump();
+                    res && setisOpen(false);
+                }}
+            >
+                Jump!
+            </button>
+            <FontAwesomeIcon icon={
+                isOpen ? faChevronLeft
+                    : faChevronRight
+            }
+                onClick={() => {
+                    setisOpen(!isOpen)
+                }}
+            />
+            {message && (<p>{message} </p>)}
+        </div>
+    )
+}
+

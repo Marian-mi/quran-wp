@@ -1,6 +1,11 @@
 const path = require('path');
-
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const webpackDevClientEntry = require.resolve('webpack-dev-server/client');
 exports.Development = () => ({
+    entry: [
+        webpackDevClientEntry,
+        './main.tsx'
+    ],
     module: {
         rules: [
             {
@@ -13,13 +18,18 @@ exports.Development = () => ({
             },
         ],
     },
+    plugins: [
+        new ReactRefreshWebpackPlugin({}),
+    ],
+    devtool: false,
     devServer: {
-        host: '0.0.0.0',
-        contentBase: path.join(__dirname,'../public'),
+        contentBase: path.join(__dirname, '../public'),
+        publicPath: '/',
         watchContentBase: true,
-        port: 3000,
+        host: '0.0.0.0',
+        port: 8080,
         hot: true,
-        quiet: true,
         historyApiFallback: true,
+        compress: true,
     }
 })
