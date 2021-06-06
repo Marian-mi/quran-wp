@@ -10,7 +10,6 @@ import logo from '../../assets/images/bismillah.png';
 import ErrorBoundary from '../ErrorBoundary';
 import AyeContainer from '../AyeContainer';
 import suraData from '../../assets/ts/sura-data.json';
-import { useHistory } from 'react-router';
 
 
 const AudioPlayer = lazy(() => import('../AudioPlayer/AudioControlPanel'));
@@ -255,7 +254,10 @@ export default class AyatPage extends React.Component<propsType, state> {
 
     scrollTo(value: number): void {
         if (this.mainContainerRef.current) {
-            this.mainContainerRef.current.scrollTop = value;
+            this.mainContainerRef.current.scrollTo({
+                top: value,
+                behavior: 'smooth'
+            })
         }
     }
 
@@ -309,7 +311,6 @@ export default class AyatPage extends React.Component<propsType, state> {
                         if (+sooreNumber === 1) divIndex -= 1;
                         return (
                             <AyeContainer
-                                ayatCount={renderTo}
                                 ayeText={item}
                                 tarjomeText={selectedTarjome[renderFrom + start + index - 1]}
                                 index={renderFrom + index}

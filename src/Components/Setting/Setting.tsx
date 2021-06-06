@@ -13,7 +13,7 @@ type Props = {
     selectedTarjomeIndex: string;
 }
 
-const Settings = ({ tarjomeSelection, qariChange, selectedTarjomeIndex }: Props): JSX.Element => {
+const Settings = React.memo(({ tarjomeSelection, qariChange, selectedTarjomeIndex }: Props): JSX.Element => {
     const defaultQari = localStorage.getItem('qariIndex') ?? 2;
     const [selectedQari, setSelectedQari] = useState(+defaultQari);
 
@@ -108,7 +108,7 @@ const Settings = ({ tarjomeSelection, qariChange, selectedTarjomeIndex }: Props)
             </div>
         </div>
     );
-};
+})
 
 export default Settings;
 
